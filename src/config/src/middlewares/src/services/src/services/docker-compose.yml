@@ -1,0 +1,25 @@
+version: "3.9"
+services:
+  backend:
+    build: ./server
+    env_file: .env
+    ports:
+      - "4000:4000"
+    depends_on:
+      - db
+  frontend:
+    build: ./client
+    ports:
+      - "3000:80"
+  db:
+    image: postgres:15
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: edu_platform
+    ports:
+      - "5432:5432"
+  redis:
+    image: redis:7
+    ports:
+      - "6379:6379"
