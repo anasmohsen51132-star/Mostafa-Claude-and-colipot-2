@@ -1,0 +1,1 @@
+npm install express cors helmet bcrypt jsonwebtoken prisma @prisma/client zod dotenv morgan
